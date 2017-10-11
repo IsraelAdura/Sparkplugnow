@@ -20,8 +20,21 @@ var admin = require('./routes/admin');
 
 
 //database connection
-mongoose.connect('mongodb://localhost/nodejslogin');
+var options = {
+  server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }
+};
+
+mongoose.connect('mongodb://localhost/sparkplugnow');
 var db = mongoose.connection;
+
+db.on('error', function (err) {
+  console.log(err);
+});
+
+db.once('open', function () {
+  console.log('handshake established')
+});
 
 //to use eventually- database
 
@@ -68,7 +81,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Express Session
 app.use(session({
-  secret: '2899ewmk;as9fdabbew8jfml;ac.!ry67798o08y9hnask',
+  secret: 'secret',
   saveUninitialized: true,
   resave: true
 }));
@@ -106,7 +119,6 @@ app.use(passport.session());
 
 
 //404 and 500 error handlers
-
 /*app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
@@ -122,7 +134,8 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.send(err.message);
-});*/
+  
+})*/
 
 // Connect Flash
 app.use(flash());

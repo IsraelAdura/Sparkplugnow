@@ -8,6 +8,6 @@ function isAdmin(req,res,next){
 
 router.get('/admin', isAdmin,function(req,res){
     res.render('admin-dashboard');
-})
+});
 
 module.exports = router;

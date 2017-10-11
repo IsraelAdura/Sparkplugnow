@@ -2,29 +2,25 @@ var mongoose = require('mongoose');
 var bcrypt = require ('bcryptjs');
 
 var UserSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required:true
-    },
     username: {
         type: String,
-        index: true,
-        required:true
+        index: true
+    },
+    name: {
+        type: String
     },
     email: {
-        type: String,
-        required:true
+        type: String
     },
     password: {
-        type: String,
-        required:true
+        type: String
     },
     password2: {
-        type: String,
-        required:true
+        type: String
     }
 
 })
+   
 
 var User = module.exports = mongoose.model('User', UserSchema);
 //hash password 

@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET homepage. */
 router.get('/', isAuthenticated, function(req, res, next) {
   res.render('index');
-});
+})
 
 function isAuthenticated(req,res,next){
   if (req.isAuthenticated()){
