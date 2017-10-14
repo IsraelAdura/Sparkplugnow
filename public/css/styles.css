@@ -1,106 +1,90 @@
-nav .navbar-brand
-{
+nav .navbar-brand{
     font-size: 40px;
     font-family:"Times New Roman", Times, serif;
 }
 .nav{
-    margin-top:100px;
+    margin-top:50px;
 }
-nav ul li
-{
+nav ul li{
     font-size: 20px;
-    padding-right: 60px;
+    padding-right: 10px;
     font-family:"Lucida Console", Monaco, monospace ;
 }
 .dropdown-menu li{
     font-family:"Comic Sans MS", cursive, sans-serif;
 }
-section
-{
+section{
     height: auto;
-    padding-top: 100px;
+    margin-top: 100px;
 }
-#nameStr
-{
+#name-str{
     padding:5px;
     width: 250px;
     border-radius:5px;
     border-color:gray;
 }
-#Pname
-{
+#p-name{
     font-size: 50px;
     font-style: bold;
 }
-.form
-{
-    padding-top: 100px;
-}
-.page-header
-{
+.page-header{
     font-size: 30px;
 }
-.xter
-{   
+.xter{   
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 20px;
 
     padding: 10px 0 10px 0;
 }
-#content
-{
-    display: none;
+#content{
+    display: block;
 }
-#Pcontact ul li img
-{
+#p-contact ul li img{
     width: 25px;
     height: 25px;
 }
-#message
-{   
+#message{   
     font-family: serif;
     font-size: 20px;
     font-style: italic;
 }
-footer
-{
+footer{
     font-size: 20px;
 	padding-top:30px;
     margin-top: 10px;
 	height:auto;
     color: black;
-    background-color: gray;
-}#sparkplug img{
+    background-color:gray;
+}
+#sparkplug img{
     width:150px;
     height:40px;
 }
-#sparkplug
-{
+#sparkplug{
     font-family: serif;
     font-size: 1.2em;
     font-style: italic;
     padding-top: 5px;
     color: #deae20;
 }
-#twit
-{
+#twit{
     padding-bottom: 10px;
     color: black;
 }
-#twit a
-{
+#twit a{
     color:black;
 }
-#twit a:hover
-{
+#twit a:hover{
     text-decoration: none;
     color: white;
 }
 #sparkConnect img{
     width:20px;
     height:20px;
-     padding-bottom:;
 }
 .fa{
     color:#deae20;
-    }
+}
+.form-field{
+    width:60%;
+}

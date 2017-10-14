@@ -16,6 +16,7 @@ router.get('/register', function (req, res) {
 //login
 router.get('/login', function (req, res) {
   res.render('login');
+  //console.log(req);
 });
 
 router.post('/register', function (req, res) {
@@ -24,7 +25,9 @@ router.post('/register', function (req, res) {
     email = req.body.email,
     password = req.body.password,
     password2 = req.body.password2;
-
+    about=req.body.about;
+    role=req.body.skills;
+    software=req.body.software;
 
     //req.body validation
   req.checkBody('name', 'name is required').notEmpty();
@@ -47,10 +50,14 @@ router.post('/register', function (req, res) {
     username: username,
     email: email,
     password: password,
+    about:about,
+    role:role,
+    software:software
+    
   })
 
   User.createUser(newUser, function (err, user) {
-    if (err) { throw err }
+    if (err) { throw err };
     console.log(user);
   });
   req.flash('success_msg', 'you are registered to login')
@@ -76,6 +83,10 @@ passport.authenticate('local',
    req.flash('success_msg', 'You are logged out');
 
    res.redirect('/users/login');
+ })
+
+ router.get('/profile',function(req,res){
+    res.render('userprofile')
  })
 
 

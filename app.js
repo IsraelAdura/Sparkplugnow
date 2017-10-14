@@ -12,7 +12,9 @@ var passport = require('passport');
 var LocalStategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var formidable=require('formidable')
 var credentials = require('./credentials.js');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -62,7 +64,6 @@ db.once('open', function () {
 
 
 
-
 var app = express();
 
 // view engine setup
@@ -91,7 +92,19 @@ app.use(session({
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});*/
+});
+
+//handle server error (500)
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.send(err.message);
+  
+})*/
 
 // Express Validator
 app.use(expressValidator({
@@ -116,27 +129,6 @@ app.use(expressValidator({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-//404 and 500 error handlers
-/*app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-//handle server error (500)
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.send(err.message);
-  
-})*/
-
 // Connect Flash
 app.use(flash());
 
@@ -153,6 +145,24 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/', admin);
 
+
+app.use(function (req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+//handle server error (500)
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.send(err.message);
+  
+})
 //set port
 app.set('port', (process.env.PORT) || 8080);
 
