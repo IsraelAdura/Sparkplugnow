@@ -2,10 +2,27 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var Passport = require('./passport');
 
 
 var User = require('../models/users');
-var Passport=require('./passport');
+var Image = require('../models/image');
+
+
+var multer = require('multer')
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+
+var upload = multer({
+  storage: storage
+});
 
 
 //signup
@@ -19,23 +36,27 @@ router.get('/login', function (req, res) {
   //console.log(req);
 });
 
-router.post('/register', function (req, res) {
-  var name = req.body.name,
-    username = req.body.username,
-    email = req.body.email,
-    password = req.body.password,
-    password2 = req.body.password2;
-    about=req.body.about;
-    role=req.body.skills;
-    software=req.body.software;
+router.post('/register', upload.any(), function (req, res) {
 
-    //req.body validation
+
+  var name = req.body.name;
+  var username = req.body.username;
+  var email = req.body.email;
+  var password = req.body.password;
+  var password2 = req.body.password2;
+  var about = req.body.about;
+  //var role = req.body.skills;
+  var skills = req.body.skills;
+  var picture = req.files.picture;
+
+  //req.body validation
   req.checkBody('name', 'name is required').notEmpty();
   req.checkBody('username', 'username is required').notEmpty();
   req.checkBody('email', 'email is required').notEmpty();
   req.checkBody('email', 'enter valid email').isEmail();
   req.checkBody('password', 'password is required').notEmpty();
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+  //req.checkBody('picture')
 
   var errors = req.validationErrors();
 
@@ -44,50 +65,48 @@ router.post('/register', function (req, res) {
       errors: errors
     });
   } else {
-  //  console.log('passed');
-  var newUser = new User({
-    name: name,
-    username: username,
-    email: email,
-    password: password,
-    about:about,
-    role:role,
-    software:software
-    
-  })
+    //  console.log('passed');
+    var newUser = new User({
+      name: name,
+      username: username,
+      email: email,
+      password: password,
+      about: about,
+      skills: skills,
+      picture: {
+        originalname: req.files[0].originalname
+      }
 
-  User.createUser(newUser, function (err, user) {
-    if (err) { throw err };
-    console.log(user);
-  });
-  req.flash('success_msg', 'you are registered to login')
+    })
+    User.createUser(newUser, function (err, user) {
+      if (err) { throw err };
+      console.log(user);
+    });
+    req.flash('success_msg', 'you are registered to login')
 
-  //console.log(name,email,password,password2,username);
+    //console.log(name,email,password,password2,username);
 
-  res.redirect('/users/login');
+    res.redirect('/users/login');
   }
 })
-  Passport.passport();
+Passport.passport();
 
 router.post('/login',
-passport.authenticate('local',
- { successRedirect: '/',failureRedirect: '/users/login', failureFlash: true }),
- function(req,res){
-  res.redirect('/');
- });
+  passport.authenticate('local',
+    { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
+  function (req, res) {
+    res.redirect('/');
+  });
 
- //logout
- router.get('/logout',function(req,res){
-   req.logout();
+//logout
+router.get('/logout', function (req, res) {
+  req.logout();
 
-   req.flash('success_msg', 'You are logged out');
+  req.flash('success_msg', 'You are logged out');
 
-   res.redirect('/users/login');
- })
+  res.redirect('/users/login');
+})
 
- router.get('/profile',function(req,res){
-    res.render('userprofile')
- })
 
 
 module.exports = router;

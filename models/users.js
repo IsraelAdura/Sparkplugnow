@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var bcrypt = require ('bcryptjs');
+var bcrypt = require('bcryptjs');
 
+//user schema
 var UserSchema = mongoose.Schema({
     username: {
         type: String,
@@ -28,15 +29,19 @@ var UserSchema = mongoose.Schema({
     contact: {
         type: Array
     },
-    picture:{
-        
-    }
+    food:{
+        type:String
+    },
+    role:{
+        type:mongoose.Schema.Types.ObjectId
+    },
+    picture:{originalname: String }
 
 })
 
 
-
 var User = module.exports = mongoose.model('User', UserSchema);
+
 
 //hash password 
 module.exports.createUser = function (newUser, callback) {
@@ -50,24 +55,27 @@ module.exports.createUser = function (newUser, callback) {
 }
 
 module.exports.getUserByUsername = function (username, callback) {
-    var query={ username: username };
-    User.findOne(query,callback);
+    var query = { username: username };
+    User.findOne(query, callback);
 }
-module.exports.comparePassword=function(password,hash,callback){
-    bcrypt.compare(password, hash, function(err, isMatch){
-        if(err) throw err;
-    	callback(null, isMatch);
+module.exports.comparePassword = function (password, hash, callback) {
+    bcrypt.compare(password, hash, function (err, isMatch) {
+        if (err) throw err;
+        callback(null, isMatch);
     });
 }
-module.exports.getUserById=function(id,callback){
-    User.findById(id,callback);
+module.exports.getUserById = function (id, callback) {
+    User.findById(id, callback);
 }
-module.exports.getAllUsers=function(callback){
-    User.find({},callback);
+module.exports.getAllUsers = function (callback) {
+    User.find({}, callback);
 }
-module.exports.comparePassword = function(candidatePassword, hash, callback){
-	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-    	if(err) throw err;
-    	callback(null, isMatch);
-	});
+module.exports.comparePassword = function (candidatePassword, hash, callback) {
+    bcrypt.compare(candidatePassword, hash, function (err, isMatch) {
+        if (err) throw err;
+        callback(null, isMatch);
+    });
 }
+
+
+    

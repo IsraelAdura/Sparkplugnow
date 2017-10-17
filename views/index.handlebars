@@ -2,37 +2,47 @@
 <!-- home section-->
 <!-- home section-->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-6 center-block text-center">
-        <img src="images/sparkstudents.jpg" id="image" width="350px" height="350px" class="img-circle animated fadeIn">
-        <div id="p-name"><img src="images/sparklogo.png"></div>
-        <br>
-      </div>
-      <div class="col-sm-4 col-md-4 center-block text-center form">
-        <form role="search">
-          <div class="form-group">
-            <input type="text" id="name-str" placeholder="Enter name">
-
-          </div>
-          <button type="submit" id="button" class="btn btn-default">Search</button>
-        </form>
-        <div id="message" class="text-center" style="padding-top:10px;"></div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 center-block text-center">
+      <img src="" images/{{user.picture.originalname}}" id="image" width="350px" height="350px" class="img-circle animated fadeIn">
+      <div id="p-name">{{user.name}}</div>
+      <br>
     </div>
-    <div class="row center-block text-center well" id="content">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
-        <strong class="page-header">About :</strong>
-        <div id="p-about" class="xter">{{user.about}}</div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <strong class="page-header"> Current Skills:</strong>
-        <div id="p-skills" class="xter">{{user.skills}} </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <strong class="page-header"> Contact:</strong>
-        <div id="p-contact" class="xter">{{user.contact}}</div>
-      </div>
-      <div id="message"> </div>
+    
+    <div class="col-sm-4 col-md-4 center-block text-center form">
+      <form role="search">
+        <div class="form-group">
+          <input type="text" id="name-str" placeholder="Enter name">
+
+        </div>
+        <button type="submit" id="button" class="btn btn-default">Search</button>
+      </form>
+      <div id="message" class="text-center" style="padding-top:10px;"></div>
+    </div>
+  </div>
+  <div class="row center-block text-center well" id="content">
+    <div class="col-sm-6 col-md-6">
+      <strong class="page-header">About :</strong>
+      <div id="p-about" class="xter">{{user.about}}</div>
+    </div>
+    <div class="col-sm-6 col-md-6  ">
+      <strong class="page-header">What do you do? :</strong>
+      <div id="p-about" class="xter">{{user.role}}</div>
+    </div>
+  </div>
+  <div class="row center-block text-center well" id="content">
+    <div class="col-md-4">
+      <strong class="page-header">Stack/Skills/Languages:</strong>
+      <div id="p-skills" class="xter">{{user.skills}} </div>
+    </div>
+
+    <div class="col-md-4">
+      <strong class="page-header"> Skills:</strong>
+      <div id="" class="xter">{{user.skills}} </div>
+    </div>
+    <div class="col-md-4">
+      <strong class="page-header"> Contact:</strong>
+      <div id="p-contact" class="xter">{{user.contact}}</div>
     </div>
   </div>

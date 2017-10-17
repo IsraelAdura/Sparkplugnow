@@ -3,7 +3,7 @@ nav .navbar-brand{
     font-family:"Times New Roman", Times, serif;
 }
 .nav{
-    margin-top:50px;
+   /* margin-top:50px;*/
 }
 nav ul li{
     font-size: 20px;
@@ -47,6 +47,9 @@ section{
     font-family: serif;
     font-size: 20px;
     font-style: italic;
+}
+#dropdown{
+    overflow: auto;;
 }
 footer{
     font-size: 20px;
