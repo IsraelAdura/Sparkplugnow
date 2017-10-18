@@ -1,47 +1,82 @@
 <!-- home section-->
 <!-- home section-->
-<!-- home section-->
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-6 center-block text-center">
-            <img src=" images/{{view.picture.originalname}}" id="image" width="350px" height="350px" class="img-circle animated fadeIn">
-            <div id="p-name"><img src="images/sparklogo.png"></div>
-            <br>
+<section>
+  <div id="picture-sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4" id="mypicture">
+          <img src="images/{{view.picture.originalname}}" class="img-circle center-block">
         </div>
-        <div class="col-sm-4 col-md-4 center-block text-center form">
-            <form role="search">
-                <div class="form-group">
-                    <input type="text" id="name-str" placeholder="Enter name">
+        <div class="col-sm-6 col-md-4 text-center" style="padding-top:60px;">
+          <h3> {{view.name}}</h3>
+          <br/>
+          <em> {{view.stack}} </em>
+          <br>
+          <span class="fa fa-map-marker" aria-hidden="true"> {{view.address}}</span></br>
+          <span> <a href="https://israeladura.github.io"  id='website' class='fa fa-globe'>{{view.website}}</a> </span>
+        </div>
 
+        <div class="col-sm-12 col-md-4 connect center-block text-center">
+          <div id='contact-group'>
+            <!-- <h3 class="page-header">Drop me a line!</h3>-->
+            <div class='' id='phone'>
+              <i class='fa fa-phone fa-2x'></i>
+              <div><a href="tel:{{view.mobile}}">{{view.mobile}}</a><br>
+              </div>
+            </div> <br>
+            <div class='' id='email'>
+              <i class='fa fa-envelope fa-2x contact'> </i>
+            </div>
+            <a href='{{view.email}}'> {{view.email}}</a > <br>
+                           
+                     </div>
                 </div>
-                <button type="submit" id="button" class="btn btn-default">Search</button>
-            </form>
-            <div id="message" class="text-center" style="padding-top:10px;"></div>
+            </div>
         </div>
     </div>
-    <div class="row center-block text-center well" id="content">
-        <div class="col-sm-6 col-md-6">
-            <strong class="page-header">About :</strong>
-            <div id="p-about" class="xter">{{view.about}}</div>
-        </div>
-        <div class="col-sm-6 col-md-6  ">
-            <strong class="page-header">What do you do? :</strong>
-            <div id="p-about" class="xter">{{view.role}}</div>
-        </div>
-    </div>
-    <div class="row center-block text-center well" id="content">
-        <div class="col-md-4">
-            <strong class="page-header">Stack/Skills/Languages:</strong>
-            <div id="p-skills" class="xter">{{view.skills}} </div>
-        </div>
+        <br>
+        <a href="https://github.com/IsraelAdura" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
+          </div>
+          <hr>
+          <div class="container">
+            <div>
+              <div class="row well text-center">
+                <div class="col-xm-12 col-sm-4 col-md-4 ">
+                  <a href='http://{{view.twitter}}' class='center-block'><i class='fa fa-twitter fa-3x'></i></a>
+                </div>
+                <div class="col-xm-12 col-sm-4 col-md-4 ">
+                  <a href='http://{{view.codepen}}' class='center-block'><i class='fa fa-codepen fa-3x'></i></a>
+                </div>
+                <div class="col-xm-12 col-sm-4 col-md-4 ">
+                  <a href='mailto:{{view.email}}' class=' center-block '><i class='fa fa-envelope fa-3x '></i></a>
+                </div>
+              </div>
+            </div>
+            <section>
+              <div class="col-sm-12 col-md-8 ">
+                <h2 class="text-center page-header">About me... <span class="fa fa-user " aria-hidden="true" style="padding-left:10px;"> </span> </h2>
+                <div class="about info">
+                  <p>{{view.about}} </p>
+                  <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-md-4">
+                  <h2 class="text-center page-header">Professional Bio...<span class="fa fa-code " style="padding-left:10px;"></span></h2>
+                  <div class="bio info">
 
-        <div class="col-md-4">
-            <strong class="page-header"> Skills:</strong>
-            <div id="" class="xter">{{view.skills}} </div>
-        </div>
-        <div class="col-md-4">
-            <strong class="page-header"> Contact:</strong>
-            <div id="p-contact" class="xter">{{view.contact}}</div>
-        </div>
-    </div>
+                    <b class='color '>  Code! | Developer | JavaScript | <i class='fa fa-heart love ' ></i> </b>
+                    <br>
+                    <h3 class=' '>
+                      <u>Technical Skills</u>
+                    </h3>
+                    <ul class='list-unstyled '>
+                      {{view.skills}}
+                    </ul>
+                    <br>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <hr>
+          </section>

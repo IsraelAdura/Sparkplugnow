@@ -4,11 +4,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var Passport = require('./passport');
 
-
 var User = require('../models/users');
-var Image = require('../models/image');
-
-
+//multer
 var multer = require('multer')
 
 var storage = multer.diskStorage({
@@ -19,44 +16,51 @@ var storage = multer.diskStorage({
     cb(null, file.originalname);
   }
 });
-
 var upload = multer({
   storage: storage
 });
-
+//>multer
 
 //signup
 router.get('/register', function (req, res) {
   res.render('register');
 });
 
-//login
+//get login
 router.get('/login', function (req, res) {
   res.render('login');
   //console.log(req);
 });
-
+//post signup information]
 router.post('/register', upload.any(), function (req, res) {
-
 
   var name = req.body.name;
   var username = req.body.username;
   var email = req.body.email;
+  var mobile = req.body.mobile;
   var password = req.body.password;
   var password2 = req.body.password2;
+  var mobile = req.body.mobile;
   var about = req.body.about;
-  //var role = req.body.skills;
   var skills = req.body.skills;
+  var github = req.body.github;
+  var twitter = req.body.twitter;
+  var website = req.body.website;
+  var codepen=req.body.codepen;
+  var address=req.body.address;
   var picture = req.files.picture;
 
   //req.body validation
   req.checkBody('name', 'name is required').notEmpty();
   req.checkBody('username', 'username is required').notEmpty();
   req.checkBody('email', 'email is required').notEmpty();
-  req.checkBody('email', 'enter valid email').isEmail();
+  req.checkBody('email', 'enter valid email eg. mail@mail.com').isEmail();
   req.checkBody('password', 'password is required').notEmpty();
+  req.checkBody('password', 'passwords must be at least 5 characters long and contain one number').isLength({ min: 4 });
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-  //req.checkBody('picture')
+  //req.checkBody('mobile', 'Enter your mobile Number').notEmpty()
+  //req.checkBody('number', 'Enter a valid  mobile Number').isNumber()
+  // req.checkBody('github', 'Enter your github account link').isEmpty();
 
   var errors = req.validationErrors();
 
@@ -71,8 +75,14 @@ router.post('/register', upload.any(), function (req, res) {
       username: username,
       email: email,
       password: password,
+      mobile: mobile,
+      address: address,
       about: about,
       skills: skills,
+      github: github,
+      twitter: twitter,
+      codepen: codepen,
+      website: website,
       picture: {
         originalname: req.files[0].originalname
       }
@@ -82,7 +92,7 @@ router.post('/register', upload.any(), function (req, res) {
       if (err) { throw err };
       console.log(user);
     });
-    req.flash('success_msg', 'you are registered to login')
+    req.flash('success_msg', 'you are registered to login');
 
     //console.log(name,email,password,password2,username);
 

@@ -13,6 +13,9 @@ var UserSchema = mongoose.Schema({
     email: {
         type: String
     },
+    mobile: {
+        type: Number
+    },
     password: {
         type: String
     },
@@ -20,26 +23,26 @@ var UserSchema = mongoose.Schema({
         type: String
     },
     about: {
-        type: String,
-        index: true
+        type: String
     },
     skills: {
         type: String
     },
-    contact: {
-        type: Array
+    github: {
+        type: String
     },
-    food:{
-        type:String
+    twitter: {
+        type: String
     },
-    role:{
-        type:mongoose.Schema.Types.ObjectId
+    website: {
+        type: String
     },
-    picture:{originalname: String }
-
+    picture: {
+        originalname: String
+    }
 })
 
-
+//create a model of the schema
 var User = module.exports = mongoose.model('User', UserSchema);
 
 
@@ -53,7 +56,7 @@ module.exports.createUser = function (newUser, callback) {
         });
     });
 }
-
+//custom functions for accessing the database
 module.exports.getUserByUsername = function (username, callback) {
     var query = { username: username };
     User.findOne(query, callback);
@@ -76,6 +79,11 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
         callback(null, isMatch);
     });
 }
+module.exports.updateUser = function (id, source, callback) {
+    User.findByIdAndUpdate(id, source, callback);
+}
+module.exports.deleteUser = function (id, callback) {
+    User.findByIdAndRemove(id, callback)
+}
 
 
-    

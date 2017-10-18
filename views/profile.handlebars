@@ -1,25 +1,46 @@
 <div class='container center-block'>
-    <h1>profile picture</h1>
-    <img src="{{user.picture}}" alt="" class='img-circle '>
-
-    <h1>Name</h1>
-    {{user.name}}
-    
-     <h1>Username</h1>
-    {{user.username}}
-
-     <h1>email</h1>
-    {{user.email}}
-    
-    <h1>About you</h1>
-    {{user.about}}
-
-     <h1>Coding languages you know</h1>
-    {{user.skills}}
-
-    <h1>What do you do?</h1>
-    {{user.skills}}
-
-    <button class='btn btn-primary'><a href="/update/{{user._id}}">Save changes</a></button>
-
-</div>
+    <div class='form-field well center-block'>
+        <form method="post" action="/" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" value={{user.name}} class="form-control" placeholder="Name" name="name">
+                <br>
+                <label>Username</label>
+                <input type="text" value={{user.username}} class="form-control" placeholder="Username" name="username">
+                <br>
+                <label>Email</label>
+                <input type='text' value={{user.email}} class="form-control" placeholder="Email" name="email">
+                <br>
+                <label>Mobile Number</label>
+                <input type="text" value={{user.mobile}} class="form-control" placeholder="Enter your mobile number here.." name="mobile">
+                <br>
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="Where are you located.." name="address">
+                <br>
+                <label>About you</label>
+                <textarea value={{user.about}} id="" cols="80" rows="7" placeholder='enter some information about yourself' name='about'></textarea>
+                <br>
+                <label>What do you do?(Tools, Stack and Technologies)</label>
+                <textarea value={{user.skills}} id="" cols="80" rows="7" placeholder='Enter technologies and language(s) you work with...'
+                    name='skills'></textarea>
+                <br>
+                <label>Github</label>
+                <input type="text" value={{user.github}} class="form-control" placeholder="github.com/yourname" name="github">
+                <br>
+                <label>Twitter</label>
+                <input type="text" value={{user.twitter}} class="form-control" placeholder="twitter.com/username" name="twitter">
+                <br>
+                <label>Codepen</label>
+                <input type="text" class="form-control" placeholder="codepen.io/yourname" name="codepenr">
+                <br>
+                <label>website</label>
+                <input type="text" value={{user.website}} class="form-control" placeholder="Enter your website if any.. or an online link that tells more about you.."
+                    name="website">
+                <br>
+                <label>Upload picture</label>
+                <input type="file" name="picture">
+                <br>
+                <a href="/update/{{user._id}}"><button type="submit" class=" btn btn-success">Save Changes</button></a>
+        </form>
+        </div>
+    </div>

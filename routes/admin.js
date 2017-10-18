@@ -11,7 +11,7 @@ router.get('/', isAdmin, function (req, res, next) {
 })
 
 function isAdmin(req, res, next) {
-    if (req.user._id == '59e24d02093092154ca24b97') {
+    if (req.user._id =='59e676bf8e793114beb50faf') {
         console.log(req.user._id)
         return next();
     }
@@ -19,7 +19,7 @@ function isAdmin(req, res, next) {
 }
 
 router.get('/delete/:id', isAdmin, function (req, res) {
-    if (req.params.id == '59e24d02093092154ca24b97') {
+    if (req.params.id =='59e676bf8e793114beb50faf') {
         res.status(500).send('<h1>you cant delete an Admin! </h1>');
     } else {
         User.findByIdAndRemove(req.params.id, function (err, user) {
@@ -32,19 +32,12 @@ router.get('/delete/:id', isAdmin, function (req, res) {
 })
 
 router.get('/update/:id', isAdmin, function (req, res) {
-    User.findById(req.params.id, function (err, user) {
+    User.getUserById(req.params.id, function (err, user) {
         if (err) throw err;
         res.render('profile', { user: user });
     });
 });
-
-router.put('/update/:id', function (req, res) {
-    User.findByIdAndUpdate(req.params.id, function () {
-        res.render('Done');
-        console.log(req.params.id, user);
-        res.redirect('/admin')
-    })
-})
+//Update user information
 
 module.exports = router;
 
