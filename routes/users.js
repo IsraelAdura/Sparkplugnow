@@ -2,24 +2,17 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var Passport = require('./passport');
-
-var User = require('../models/users');
-//multer
 var multer = require('multer')
 
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/images/')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
-});
-var upload = multer({
-  storage: storage
-});
-//>multer
+//custom modules
+var User = require('../models/users');
+var Passport = require('./passport');
+
+
+var image = require('./image');
+image.multer
+var upload = image.upload
+
 
 //signup
 router.get('/register', function (req, res) {
@@ -31,8 +24,9 @@ router.get('/login', function (req, res) {
   res.render('login');
   //console.log(req);
 });
-//post signup information]
-router.post('/register', upload.any(), function (req, res) {
+
+//post signup information
+router.post('/register',upload.any(), function (req, res) {
 
   var name = req.body.name;
   var username = req.body.username;
@@ -46,8 +40,8 @@ router.post('/register', upload.any(), function (req, res) {
   var github = req.body.github;
   var twitter = req.body.twitter;
   var website = req.body.website;
-  var codepen=req.body.codepen;
-  var address=req.body.address;
+  var codepen = req.body.codepen;
+  var address = req.body.address;
   var picture = req.files.picture;
 
   //req.body validation

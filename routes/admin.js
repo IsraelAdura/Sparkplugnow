@@ -25,10 +25,9 @@ router.get('/delete/:id', isAdmin, function (req, res) {
         User.findByIdAndRemove(req.params.id, function (err, user) {
             // if (req.user.id)
             res.redirect('/admin');
-            console.log(req.params.id, user)
+            console.log(req.params.id, user);
         });
     }
-
 })
 
 router.get('/update/:id', isAdmin, function (req, res) {
@@ -37,12 +36,6 @@ router.get('/update/:id', isAdmin, function (req, res) {
         res.render('profile', { user: user });
     });
 });
-//Update user information
-/*router.put('/update/:id', isAdmin, function (req, res) {
-    User.updateUser(req.params.id, req.body,function (err, user) {
-        if (err) throw err;
-        res.render('index');
-    });
-  });*/
+
 module.exports = router;
 

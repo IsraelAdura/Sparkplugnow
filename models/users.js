@@ -15,13 +15,16 @@ var UserSchema = mongoose.Schema({
         type: String
     },
     mobile: {
-        type: Number
+        type: String
     },
     password: {
         type: String
     },
     password2: {
         type: String
+    },
+    address:{
+        type:String
     },
     about: {
         type: String
@@ -34,6 +37,9 @@ var UserSchema = mongoose.Schema({
     },
     twitter: {
         type: String
+    },
+    codepen:{
+        type:String
     },
     website: {
         type: String

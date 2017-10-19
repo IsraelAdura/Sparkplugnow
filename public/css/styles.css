@@ -10,6 +10,9 @@ nav ul li{
     padding-right: 10px;
     font-family:"Lucida Console", Monaco, monospace ;
 }
+#body{
+	min-height:500px;
+}
 .dropdown-menu li{
     font-family:"Comic Sans MS", cursive, sans-serif;
 }
@@ -19,7 +22,6 @@ nav ul li{
 #dropdown{
     overflow: auto;
 }
-
 .form-field{
     width:60%;
 }
@@ -27,13 +29,10 @@ nav ul li{
 		width: 250px;
 		height: 250px;
 	}
-}
-	
 #mypicture img {
 	width: 300px;
 	height: 300px;
 }
-
 .color {
 	color: #1ABC9C;
 }
@@ -47,7 +46,6 @@ nav ul li{
 #website{
 	color:#222222;
 }
-
 
 #picture-sec {
 	padding-top: 100px;

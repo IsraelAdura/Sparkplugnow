@@ -2,16 +2,22 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/users');
 
+var multer = require('multer');
+var image = require('./image');
+
+image.multer
+var upload = image.upload
 
 /* GET homepage. */
 router.get('/', isAuthenticated, function (req, res, next) {
+  //  console.log(req.body);
   User.getAllUsers(function (err, users) {
     res.render('index', { users: users });
   })
 });
 
 router.get('/profile', isAuthenticated, function (req, res) {
-  res.render('profile')
+  res.render('profile');
 })
 
 router.get('/user/:username', isAuthenticated, function (req, res) {
@@ -25,23 +31,28 @@ router.get('/user/:username', isAuthenticated, function (req, res) {
     });
   });
 });
-
-router.post('/update/:id', isAuthenticated, function (req, res) {
-  /*User.updateUser({_id:req.params.id}, req.body, function (err, user) {
+router.get('/image', isAuthenticated, function (req, res) {
+  User.getAllUsers(function (err, users) {
+    res.render('image', { users: users });
+  })
+})
+router.post('/updateImage/:id', upload.any(), function (req, res) {
+  console.log(req.body)
+  User.findByIdAndUpdate({ _id: req.params.id }, { picture: req.body.picture }, function (err, user) {
+  // console.log(req.body)
     if (err) { throw err };
-    User.getUserById(req.params.id, function (err, user) {
-      if (err) { throw err };
-      console.log(user);
-      res.send('done');
-    })
-  })*/
-  User.findByIdAndUpdate({_id:req.params.id}, req.body, function (err, user) {
-    if (err) throw err;
+    res.render('index');
+  })
+})
+router.post('/update/:id', isAuthenticated, function (req, res) {
 
-    // we have the updated user returned to us
-    console.log(user);
-  });
-});
+  console.log(req.body);
+  User.findByIdAndUpdate({ _id: req.params.id }, req.body, function (err, user) {
+
+    if (err) { throw err };
+    res.render('index');
+  })
+})
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
