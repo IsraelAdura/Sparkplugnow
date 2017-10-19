@@ -38,6 +38,11 @@ router.get('/update/:id', isAdmin, function (req, res) {
     });
 });
 //Update user information
-
+/*router.put('/update/:id', isAdmin, function (req, res) {
+    User.updateUser(req.params.id, req.body,function (err, user) {
+        if (err) throw err;
+        res.render('index');
+    });
+  });*/
 module.exports = router;
 

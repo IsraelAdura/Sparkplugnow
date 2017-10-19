@@ -1,6 +1,6 @@
 <div class='container center-block'>
     <div class='form-field well center-block'>
-        <form method="post" action="/" enctype="multipart/form-data">
+        <form method="post" action='/update/{{user._id}}' enctype="multipart/form-data">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" value={{user.name}} class="form-control" placeholder="Name" name="name">
@@ -38,9 +38,9 @@
                     name="website">
                 <br>
                 <label>Upload picture</label>
-                <input type="file" name="picture">
+                <input type="file" value="images/{{user.picture.originalname}}"  name="picture">
                 <br>
-                <a href="/update/{{user._id}}"><button type="submit" class=" btn btn-success">Save Changes</button></a>
+            <button type="submit" class=" btn btn-success">Save Changes </button>
         </form>
         </div>
     </div>

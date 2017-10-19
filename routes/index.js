@@ -18,14 +18,30 @@ router.get('/user/:username', isAuthenticated, function (req, res) {
   User.getAllUsers(function (err, users) {
     User.getUserByUsername(req.params.username, function (err, user) {
       if (err) throw err;
-      res.render('user', { 
+      res.render('user', {
         view: user,
-        users:users
-       });
+        users: users
+      });
     });
   });
 });
 
+router.post('/update/:id', isAuthenticated, function (req, res) {
+  /*User.updateUser({_id:req.params.id}, req.body, function (err, user) {
+    if (err) { throw err };
+    User.getUserById(req.params.id, function (err, user) {
+      if (err) { throw err };
+      console.log(user);
+      res.send('done');
+    })
+  })*/
+  User.findByIdAndUpdate({_id:req.params.id}, req.body, function (err, user) {
+    if (err) throw err;
+
+    // we have the updated user returned to us
+    console.log(user);
+  });
+});
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

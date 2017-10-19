@@ -1,3 +1,6 @@
+.header{
+	margin-bottom: 100px;
+}
 nav .navbar-brand{
     font-size: 40px;
     font-family:"Times New Roman", Times, serif;
@@ -20,53 +23,6 @@ nav ul li{
 .form-field{
     width:60%;
 }
-
-@media only screen  and (min-width : 1224px) {
-	/* Styles */
-	#nav {
-		background-color: #34495e;
-		font-family:"Comic Sans MS", cursive, sans-serif;
-		height:70px;
-		transition: all 0.2s; 
-	  }
-	#brand{
-		color:white;
-		font-size:35px;
-		position: relative;
-	}
-	#brand.slide{
-		color:white;
-		position: relative;
-		/*left:32vw;
-		font-size:40px;*/
-		animation-name: slide;
-		animation-fill-mode: forwards;
-		animation-duration: 0.6s;	
-	}/**/
-	@-webkit-keyframes slide {
-		from {left: 0px;}
-		to {left: 30vw;}
-	}
-	
-	/* Standard syntax */
-	@keyframes slide {
-		from {left: 0vw;}
-		to {left: 30vw;}
-	}
-}
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
-	/* Styles */
-	#nav {
-		background-color: #34495e;
-		font-family:"Comic Sans MS", cursive, sans-serif;
-		height:60px;
-	  }
-	#brand{
-		color:white;
-		font-size:35px;
-		position: relative;
-	}
 	#mypicture img {
 		width: 250px;
 		height: 250px;
