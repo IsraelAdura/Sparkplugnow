@@ -2,37 +2,65 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var Passport = require('./passport');
 
 var User = require('../models/users');
-var Passport=require('./passport');
+//multer
+var multer = require('multer')
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  }
+});
+var upload = multer({
+  storage: storage
+});
+//>multer
 
 //signup
 router.get('/register', function (req, res) {
   res.render('register');
 });
 
-//login
+//get login
 router.get('/login', function (req, res) {
   res.render('login');
+  //console.log(req);
 });
+//post signup information]
+router.post('/register', upload.any(), function (req, res) {
 
-router.post('/register', function (req, res) {
-  var name = req.body.name,
-    username = req.body.username,
-    email = req.body.email,
-    password = req.body.password,
-    password2 = req.body.password2;
+  var name = req.body.name;
+  var username = req.body.username;
+  var email = req.body.email;
+  var mobile = req.body.mobile;
+  var password = req.body.password;
+  var password2 = req.body.password2;
+  var mobile = req.body.mobile;
+  var about = req.body.about;
+  var skills = req.body.skills;
+  var github = req.body.github;
+  var twitter = req.body.twitter;
+  var website = req.body.website;
+  var codepen=req.body.codepen;
+  var address=req.body.address;
+  var picture = req.files.picture;
 
-
-    //req.body validation
+  //req.body validation
   req.checkBody('name', 'name is required').notEmpty();
   req.checkBody('username', 'username is required').notEmpty();
   req.checkBody('email', 'email is required').notEmpty();
-  req.checkBody('email', 'enter valid email').isEmail();
+  req.checkBody('email', 'enter valid email eg. mail@mail.com').isEmail();
   req.checkBody('password', 'password is required').notEmpty();
+  req.checkBody('password', 'passwords must be at least 5 characters long and contain one number').isLength({ min: 4 });
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+  //req.checkBody('mobile', 'Enter your mobile Number').notEmpty()
+  //req.checkBody('number', 'Enter a valid  mobile Number').isNumber()
+  // req.checkBody('github', 'Enter your github account link').isEmpty();
 
   var errors = req.validationErrors();
 
@@ -41,42 +69,54 @@ router.post('/register', function (req, res) {
       errors: errors
     });
   } else {
-  //  console.log('passed');
-  var newUser = new User({
-    name: name,
-    username: username,
-    email: email,
-    password: password,
-  })
+    //  console.log('passed');
+    var newUser = new User({
+      name: name,
+      username: username,
+      email: email,
+      password: password,
+      mobile: mobile,
+      address: address,
+      about: about,
+      skills: skills,
+      github: github,
+      twitter: twitter,
+      codepen: codepen,
+      website: website,
+      picture: {
+        originalname: req.files[0].originalname
+      }
 
-  User.createUser(newUser, function (err, user) {
-    if (err) { throw err }
-    console.log(user);
-  });
-  req.flash('success_msg', 'you are registered to login')
+    })
+    User.createUser(newUser, function (err, user) {
+      if (err) { throw err };
+      console.log(user);
+    });
+    req.flash('success_msg', 'you are registered to login');
 
-  //console.log(name,email,password,password2,username);
+    //console.log(name,email,password,password2,username);
 
-  res.redirect('/users/login');
+    res.redirect('/users/login');
   }
 })
-  Passport.passport();
+Passport.passport();
 
 router.post('/login',
-passport.authenticate('local',
- { successRedirect: '/',failureRedirect: '/users/login', failureFlash: true }),
- function(req,res){
-  res.redirect('/');
- });
+  passport.authenticate('local',
+    { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
+  function (req, res) {
+    res.redirect('/');
+  });
 
- //logout
- router.get('/logout',function(req,res){
-   req.logout();
+//logout
+router.get('/logout', function (req, res) {
+  req.logout();
 
-   req.flash('success_msg', 'You are logged out');
+  req.flash('success_msg', 'You are logged out');
 
-   res.redirect('/users/login');
- })
+  res.redirect('/users/login');
+})
+
 
 
 module.exports = router;

@@ -5,15 +5,15 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6 col-md-4" id="mypicture">
-          <img src="images/{{user.picture.originalname}}" class="img-circle center-block">
+          <img src="images/{{view.picture.originalname}}" class="img-circle center-block">
         </div>
         <div class="col-sm-6 col-md-4 text-center" style="padding-top:60px;">
-          <h3> {{user.name}}</h3>
+          <h3> {{view.name}}</h3>
           <br/>
-          <em> {{user.stack}} </em>
+          <em> {{view.stack}} </em>
           <br>
-          <span class="fa fa-map-marker" aria-hidden="true"> {{user.address}}</span></br>
-          <span> <a href="https://israeladura.github.io"  id='website' class='fa fa-globe'>{{user.website}}</a> </span>
+          <span class="fa fa-map-marker" aria-hidden="true"> {{view.address}}</span></br>
+          <span> <a href="https://israeladura.github.io"  id='website' class='fa fa-globe'>{{view.website}}</a> </span>
         </div>
 
         <div class="col-sm-12 col-md-4 connect center-block text-center">
@@ -21,28 +21,34 @@
             <!-- <h3 class="page-header">Drop me a line!</h3>-->
             <div class='' id='phone'>
               <i class='fa fa-phone fa-2x'></i>
-              <div><a href="tel:{{user.mobile}}">{{user.mobile}}</a><br>
+              <div><a href="tel:{{view.mobile}}">{{view.mobile}}</a><br>
               </div>
+            </div> <br>
+            <div class='' id='email'>
+              <i class='fa fa-envelope fa-2x contact'> </i>
             </div>
-          </div>
+            <a href='{{view.email}}'> {{view.email}}</a > <br>
+                           
+                     </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <br>
-    <a href="https://github.com/IsraelAdura" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
-  </div>
-  <hr>
-  <div class="container">
-    <div>
-      <div class="row well text-center">
-        <div class="col-xm-12 col-sm-4 col-md-4 ">
-          <a href='http://{{user.twitter}}' class='center-block'><i class='fa fa-twitter fa-3x'></i></a>
-        </div>
-        <div class="col-xm-12 col-sm-4 col-md-4 ">
-          <a href='http://{{user.codepen}}' class='center-block'><i class='fa fa-codepen fa-3x'></i></a>
-        </div>
-        <div class="col-xm-12 col-sm-4 col-md-4 ">
-          <a href='mailto:{{user.email}}' class=' center-block '><i class='fa fa-envelope fa-3x '></i></a>
+        <br>
+        <a href="https://github.com/IsraelAdura" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
+          </div>
+          <hr>
+          <div class="container">
+            <div>
+              <div class="row well text-center">
+                <div class="col-xm-12 col-sm-4 col-md-4 ">
+                  <a href='http://{{view.twitter}}' class='center-block'><i class='fa fa-twitter fa-3x'></i></a>
+                </div>
+                <div class="col-xm-12 col-sm-4 col-md-4 ">
+                  <a href='http://{{view.codepen}}' class='center-block'><i class='fa fa-codepen fa-3x'></i></a>
+                </div>
+                <div class="col-xm-12 col-sm-4 col-md-4 ">
+                  <a href='mailto:{{view.email}}' class=' center-block '><i class='fa fa-envelope fa-3x '></i></a>
                 </div>
               </div>
             </div>
@@ -50,7 +56,7 @@
               <div class="col-sm-12 col-md-8 ">
                 <h2 class="text-center page-header">About me... <span class="fa fa-user " aria-hidden="true" style="padding-left:10px;"> </span> </h2>
                 <div class="about info">
-                  <p>{{user.about}} </p>
+                  <p>{{view.about}} </p>
                   <br>
                 </div>
               </div>
@@ -65,7 +71,7 @@
                       <u>Technical Skills</u>
                     </h3>
                     <ul class='list-unstyled '>
-                      {{user.skills}}
+                      {{view.skills}}
                     </ul>
                     <br>
                   </div>

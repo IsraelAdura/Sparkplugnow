@@ -1,0 +1,17 @@
+<h1>Welcome Admin</h1>
+
+{{#each users}}
+<div class='row well'>
+    <div class='col-md-4'>{{name}}</div>
+<div class='col-md-3 '>
+     <button class='btn btn-danger'> <a href="/admin/delete/{{_id}}">Delete user</a></button>
+</div>
+<div class='col-md-3 '>
+     <button class='btn btn-primary'><a href="/admin/update/{{_id}}" >Update User info</a></button>
+</div>
+<div>
+    <button class='btn btn-success'><a href="/users/register">Add new User</a></button>
+</div>
+
+</div>
+{{/each}}

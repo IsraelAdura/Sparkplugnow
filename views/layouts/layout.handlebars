@@ -5,120 +5,103 @@
   <title>Sparkplugnow-a spark at a time!</title>
   <!-- CSS -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-  <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/styles.css">
-  <link href="css/awesomplete.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="css/awesomplete.css">
 
   <!-- Latest compiled and minified CSS CDN-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  <link rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4uhref=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+    ""crossorigin="anonymous">
+  <link rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     crossorigin="anonymous">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous">
-
 
 </head>
 
-<body>
-  <div class="container">
-    <div class="header clearfix">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          {{#if user}}
-          <li role="presentation"><a href="/">Dashboard</a></li>
-          <li role="presentation"><a href="/users/logout">Logout</a></li>
-          {{else}}
-          <li role="presentation"><a href="/users/login">Login</a></li>
-          <li role="presentation"><a href="/users/register">Register</a></li>
-          {{/if}}
-        </ul>
-
-
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<div class="container">
+  <div class="header clearfix">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                       </button>
-              <a class="navbar-brand" href="index.html">Sparkplugnow</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#sparkConnect" id="toSpark" class="smoothScroll">Connect</a></li>
-                <li><a href="http://www.sparkplugnow.com" target="blank">Sparkplugnow</a></li>
-                {{#if user}}
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria- - haspopup="true" aria-expanded="false">Students <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li class='div'><a href="#" id="israel">Israel</a></li>
-                    <li class='div'><a href="#" id="david">David</a></li>
-                    <li class='div'><a href="#" id="memuna">Memuna</a></li>
-                    <li class='div'><a href="#" id="chidera">Chidera</a></li>
-                    <li class='div'><a href="#" id="tobi">Tobi</a></li>
-                    <li class='div'><a href="#" id="zubair">Zubair</a></li>
-                    <li class='div'><a href="#" id="stephen">Stephen</a></li>
-                    <li class='div'><a href="#" id="lekan">Lekan</a></li>
-                    <li class='div'><a href="#" id="alex">Alex</a></li>
-                    <li class='div'><a href="#" id="sule">Suleiman</a></li>
-                    <li class='div'><a href="#" id="afeez">Afeez</a></li>
-                    <li><a href="#"></a></li>
-                    <li role="separator" class="divider page-header"></li>
-                    <li><a href="#" id="president"><b><em>President/Founder</em></b></a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class='div'><a href="#" id="olumide">Olumide Adewumi</a></li>
-                  </ul>
-                </li>
-                {{else}}
-                <li>
-                  
-                  <a href="/users/login">Login</a>/<a href="/users/register">Sign up</a>
-                 
-                </li>
-                {{/if}}
-              </ul>
-            </div>
+            <a class="navbar-brand" href="/index">DB</a>
           </div>
-        </nav>
-        <h3 class="text-muted">Sparkplugnow</h3>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        {{#if success_msg}}
-        <div class="alert alert-success">{{success_msg}}</div>
-        {{/if}} {{#if error_msg}}
-        <div class="alert alert-danger">{{error_msg}}</div>
-        {{/if}} {{#if error}}
-        <div class="alert alert-danger">{{error}}</div>
-        {{/if}} 
-        
-        {{{body}}}
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#sparkConnect" id="toSpark" class="smoothScroll">Connect</a></li>
+              <li><a href="http://www.sparkplugnow.com" target="blank">Code.</a></li>
+              {{#if user}}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria- - haspopup="true" aria-expanded="false">Students <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  {{#each users}}
+                  <li class='div' id='dropdown'><a href="/user/{{username}}">{{name}}</a></li>
+                  {{/each}}
+                  <li></li>
+                  <li role="separator" class="divider page-header"></li>
+                  <li><a href="#" id="president"><b><em>President/Founder</em></b></a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class='div'><a href="#" id="olumide">Olumide Adewumi</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria- - haspopup="true" aria-expanded="false"> <img src="images/{{user.picture.originalname}}" width="30px" height="30px" alt="" class='img-circle'><span class="caret"></span> {{user.name}}</a>
+                <ul class="dropdown-menu">
+                  <li> <a href="/profile">Profile</a></li>
+                  <li> <a href="/users/logout">logout</a></li>
+                </ul>
+              </li>
+              {{else}}
+              <li> <a href="/users/register">Sign Up</a></li>
+            </ul>
+            {{/if}}
+          </div>
+        </div>
+      </nav>
+  </div>
 
-      </div>
+  <div class="row">
+    <div class="col-lg-12">
+      {{#if success_msg}}
+      <div class="alert alert-success">{{success_msg}}</div>
+      {{/if}} {{#if error_msg}}
+      <div class="alert alert-danger">{{error_msg}}</div>
+      {{/if}} {{#if error}}
+      <div class="alert alert-danger">{{error}}</div>
+      {{/if}}
+      <div>{{{body}}}</div>
+
     </div>
   </div>
 
-  <!--footer section -->
-  <footer class="text-center">
-    <div class="container ">
-      <div id="sparkplug">
-        code education... a spark at a time!
-        <br/>
-      </div>
-      <div id="twit" style="font-family:tahoma;">with <span style="color:red;" class=" fa fa-heart"></span> by <a href="http://twitter.com/aduraisrael"> @aduraisrael </a>
-      </div>
-      <ul id="sparkConnect" class="list-inline list-unstyled">
-        <li><a href="http://sparkplugnow.com"><img src ="images/sparkplugnow.png"></a></li>
-        <li><a href="https://twitter.com/@sparkplugnow"><i class="fa fa-twitter-square"></i></a></li>
-  </footer>
-  <!-- /container -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/awesomplete.js"></script>
-  <script src="js/smoothscroll.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/app.js"></script>
+</div>
 
-</body>
-
-</html>
+<!--footer section -->
+<footer class="text-center">
+  <div class='row'>
+    <ul class="list-inline social-buttons">
+      <li><a href="https://github.com/sparkplugnow"><i class="fa fa-github"></i></a>
+        <li><a href="https://twitter.com/sparkplugnow"><i class="fa fa-twitter"></i></a>
+        </li>
+      </li>
+      <li><a href="http://sparkplugnow.com"><i class="fa fa-globe"></i></a>
+      </li>
+    </ul>
+  </div>
+  <div class='row' id='copyright'>
+    &copy 2017 | Crafted and Designed with <i class='fa fa-heart love'></i> by <a href="https://israeladura.github.io" id='name'>Israel Adura</a</i>
+                        </div>  
+                        
+                 </footer>
+      <!---->  
+      <script src='js/app.js'></script> 
+      <script src="js/jquery.min.js"></script>
+      <script src="js/awesomplete.js"></script>
+      <script src="js/smoothscroll.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      </body>
+      </html>
