@@ -2,9 +2,6 @@ nav .navbar-brand{
     font-size: 40px;
     font-family:"Times New Roman", Times, serif;
 }
-.nav{
-    margin-top:50px;
-}
 nav ul li{
     font-size: 20px;
     padding-right: 10px;
@@ -13,78 +10,216 @@ nav ul li{
 .dropdown-menu li{
     font-family:"Comic Sans MS", cursive, sans-serif;
 }
-section{
-    height: auto;
-    margin-top: 100px;
-}
-#name-str{
-    padding:5px;
-    width: 250px;
-    border-radius:5px;
-    border-color:gray;
-}
-#p-name{
-    font-size: 50px;
-    font-style: bold;
-}
 .page-header{
     font-size: 30px;
 }
-.xter{   
-    font-family: Tahoma, Geneva, sans-serif;
-    font-size: 20px;
+#dropdown{
+    overflow: auto;
+}
 
-    padding: 10px 0 10px 0;
-}
-#content{
-    display: block;
-}
-#p-contact ul li img{
-    width: 25px;
-    height: 25px;
-}
-#message{   
-    font-family: serif;
-    font-size: 20px;
-    font-style: italic;
-}
-footer{
-    font-size: 20px;
-	padding-top:30px;
-    margin-top: 10px;
-	height:auto;
-    color: black;
-    background-color:gray;
-}
-#sparkplug img{
-    width:150px;
-    height:40px;
-}
-#sparkplug{
-    font-family: serif;
-    font-size: 1.2em;
-    font-style: italic;
-    padding-top: 5px;
-    color: #deae20;
-}
-#twit{
-    padding-bottom: 10px;
-    color: black;
-}
-#twit a{
-    color:black;
-}
-#twit a:hover{
-    text-decoration: none;
-    color: white;
-}
-#sparkConnect img{
-    width:20px;
-    height:20px;
-}
-.fa{
-    color:#deae20;
-}
 .form-field{
     width:60%;
+}
+
+@media only screen  and (min-width : 1224px) {
+	/* Styles */
+	#nav {
+		background-color: #34495e;
+		font-family:"Comic Sans MS", cursive, sans-serif;
+		height:70px;
+		transition: all 0.2s; 
+	  }
+	#brand{
+		color:white;
+		font-size:35px;
+		position: relative;
+	}
+	#brand.slide{
+		color:white;
+		position: relative;
+		/*left:32vw;
+		font-size:40px;*/
+		animation-name: slide;
+		animation-fill-mode: forwards;
+		animation-duration: 0.6s;	
+	}/**/
+	@-webkit-keyframes slide {
+		from {left: 0px;}
+		to {left: 30vw;}
+	}
+	
+	/* Standard syntax */
+	@keyframes slide {
+		from {left: 0vw;}
+		to {left: 30vw;}
+	}
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+	/* Styles */
+	#nav {
+		background-color: #34495e;
+		font-family:"Comic Sans MS", cursive, sans-serif;
+		height:60px;
+	  }
+	#brand{
+		color:white;
+		font-size:35px;
+		position: relative;
+	}
+	#mypicture img {
+		width: 250px;
+		height: 250px;
+	}
+}
+	
+#mypicture img {
+	width: 300px;
+	height: 300px;
+}
+
+.color {
+	color: #1ABC9C;
+}
+#contact-group{
+	color:#222222;
+	font-size:1em;
+}
+#contact-group a{
+	color:#222222;
+}
+#website{
+	color:#222222;
+}
+
+
+#picture-sec {
+	padding-top: 100px;
+	background: #f5f5f5;
+	font-family:tahoma;
+}
+#pw{
+	cursor: pointer;
+}
+#git {
+	background-color:#34495e;
+	width: 150px;
+	color:white;
+	border-radius: 10px;
+	height: 50px;
+}
+
+#git a {
+	color: black;
+	font-size: 18px;
+}
+
+#git:hover {
+	padding:5px;
+	transition:all 0.3s;
+	color: black;
+	background-color:#45596D;
+}
+
+/*.about {
+	border-radius: 5px;
+	background-color: #34495e;
+	text-align: center;
+	padding: 50px 15px 20px 15px;
+	color: white;
+	font-size: 20px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	overflow: auto;
+	height:400px;
+}*/
+section{
+	background-color:#ECF0F1;;
+}
+
+.info {
+	border-radius: 5px;
+	background-color: #34495e;
+	text-align: center;
+	padding: 20px 10px 20px 10px;
+	color: white;
+	font-size: 20px;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	overflow: auto;
+	height:400px;
+}
+
+footer {
+	background-color:#303739;
+	padding:20px;
+	text-align: center;
+	color:#222222;
+	font-family: tahoma;
+	font-size: 1.3em;
+	line-height: 40px;
+}
+
+footer a {
+	color: #323030;
+	font-size: 1.3em;
+}
+
+footer a:hover {
+	color: #f5f5f5;
+}
+ul.social-buttons {
+	padding-top:20px;
+	margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+	display: block;
+	height: 40px;
+	width: 40px;
+	border-radius: 100%;
+	font-size: 20px;
+	line-height: 40px;
+	color: white;
+	outline: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+	background-color:#34495e;
+}
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus {
+	outline: none;
+}
+
+img::selection {
+	background: transparent;
+}
+
+img::-moz-selection {
+	background: transparent;
+}
+
+#contact-group {
+	padding-top: 50px;
+}
+#copyright{
+	color:#000000
+}
+#name{
+	color:white;
+	font-family:cursive;
+}
+#name:hover {
+	color: white;
+}
+
+.love {
+	color: red;
 }
