@@ -27,7 +27,7 @@ router.get('/login', function (req, res) {
 
 //post signup information
 router.post('/register',upload.any(), function (req, res) {
-
+//console.log(req.body)
   var name = req.body.name;
   var username = req.body.username;
   var email = req.body.email;
@@ -37,6 +37,10 @@ router.post('/register',upload.any(), function (req, res) {
   var mobile = req.body.mobile;
   var about = req.body.about;
   var skills = req.body.skills;
+  var stack=req.body.stack;
+ var  interest1=req.body.interest1;
+ var  interest2=req.body.interest2;
+ var  interest3=req.body.interest3;
   var github = req.body.github;
   var twitter = req.body.twitter;
   var website = req.body.website;
@@ -52,9 +56,8 @@ router.post('/register',upload.any(), function (req, res) {
   req.checkBody('password', 'password is required').notEmpty();
   req.checkBody('password', 'passwords must be at least 5 characters long and contain one number').isLength({ min: 4 });
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-  //req.checkBody('mobile', 'Enter your mobile Number').notEmpty()
-  //req.checkBody('number', 'Enter a valid  mobile Number').isNumber()
-  // req.checkBody('github', 'Enter your github account link').isEmpty();
+  req.checkBody('mobile', 'Kindly Enter your mobile Number').notEmpty()
+  req.checkBody('github', 'Enter your github account link').notEmpty();
 
   var errors = req.validationErrors();
 
@@ -63,7 +66,6 @@ router.post('/register',upload.any(), function (req, res) {
       errors: errors
     });
   } else {
-    //  console.log('passed');
     var newUser = new User({
       name: name,
       username: username,
@@ -73,6 +75,10 @@ router.post('/register',upload.any(), function (req, res) {
       address: address,
       about: about,
       skills: skills,
+      stack:stack,
+      interest1:interest1,
+      interest2:interest2,
+      interest3:interest3,
       github: github,
       twitter: twitter,
       codepen: codepen,

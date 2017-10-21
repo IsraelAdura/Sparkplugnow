@@ -14,13 +14,12 @@ var passport = require('passport');
 var LocalStategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var formidable=require('formidable')
-var credentials = require('./credentials.js');
 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
+var config=require('./config.js')
 
 
 //database connection
@@ -29,7 +28,13 @@ var options = {
   replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }
 };
 
-mongoose.connect('mongodb://localhost/sparkplugnow');
+//connect to mongodb locally
+mongoose.connect(config.mongo);
+
+//connect to database
+mongoose.connect(config.mlab);
+
+//mongodb://<dbuser>:<dbpassword>@ds125565.mlab.com:25565/sparkplugnow
 var db = mongoose.connection;
 
 db.on('error', function (err) {
@@ -53,7 +58,7 @@ app.set('view engine', 'handlebars');
 
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

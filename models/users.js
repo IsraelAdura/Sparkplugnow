@@ -32,6 +32,18 @@ var UserSchema = mongoose.Schema({
     skills: {
         type: String
     },
+    stack:{
+        type:String
+    },
+    interest1:{
+        type:String
+    },
+    interest2:{
+        type:String
+    },
+    interest3:{
+        type:String
+    },
     github: {
         type: String
     },

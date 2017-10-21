@@ -2,16 +2,18 @@
 	margin-bottom: 100px;
 }
 nav .navbar-brand{
-    font-size: 40px;
+	padding-top:0px;
+	font-size: 40px;
+	height:60px;
     font-family:"Times New Roman", Times, serif;
 }
 nav ul li{
     font-size: 20px;
-    padding-right: 10px;
+	padding-right: 10px;
     font-family:"Lucida Console", Monaco, monospace ;
 }
 #body{
-	min-height:500px;
+	min-height:450px;
 }
 .dropdown-menu li{
     font-family:"Comic Sans MS", cursive, sans-serif;
@@ -74,18 +76,6 @@ nav ul li{
 	color: black;
 	background-color:#45596D;
 }
-
-/*.about {
-	border-radius: 5px;
-	background-color: #34495e;
-	text-align: center;
-	padding: 50px 15px 20px 15px;
-	color: white;
-	font-size: 20px;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	overflow: auto;
-	height:400px;
-}*/
 section{
 	background-color:#ECF0F1;;
 }
