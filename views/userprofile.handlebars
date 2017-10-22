@@ -1,0 +1,59 @@
+<div class='container center-block'>
+    <div class='form-field well center-block'>
+        <h3> <a href="/admin/image/{{view._id}}" class='text-center'> Change Profile picture </a></h3>
+        <form method='post' action="/update/{{view._id}}">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" value='{{view.name}}' class="form-control" placeholder="Name" name="name">
+                <br>
+                <label>Username</label>
+                <input type="text" value='{{view.username}}' class="form-control" placeholder="Username" name="username">
+                <br>
+                <label>Email</label>
+                <input type='email' value='{{view.email}}' class="form-control" placeholder="Email" name="email">
+                <br>
+                <label>Mobile Number</label>
+                <input type="tel" value='{{view.mobile}}' class="form-control" placeholder="Enter your mobile number here.." name="mobile">
+                <br>
+                <label>Address</label>
+                <input type="text" value='{{view.address}}' class="form-control" placeholder="where are you located..." name="address">
+                <br>
+                <label>About you</label>
+                <textarea id="" cols="80" rows="7" placeholder='enter some information about yourself' name='about'>{{view.about}}</textarea>
+                <br> <br>
+
+                <label>What do you do?(Tools, Stack and Technologies)</label>
+                <textarea id="" cols="80" rows="7" placeholder='Enter technologies and language(s) you work with...' name='skills'> {{view.skills}}</textarea>
+                <br><br>
+                <label>Stack</label>
+                <br>
+                <input type="radio" value='Frontend' name='stack'> Frontend
+                <input type='radio' value='Backend' name='stack'> Backend
+                <input type='radio' value='Fullstack' name='stack'> Fullstack
+                <input type='radio' value='Mobile' name='stack'> Mobile
+                <input type='radio' value='MLAI' name='stack'> ML/AI
+                <br> <br>
+                <label>Interests</label>
+                <br/>
+                <input type="text" value='{{view.interest1}}' class="form-control" placeholder="Enter an interest here" name="interest1">
+                <input type="text" value='{{view.interest2}}' class="form-control" placeholder="Enter another interest here" name="interest2">
+                <input type="text" value='{{view.interest3}}' class="form-control" placeholder="yet another interest." name="interest3">
+                <br>
+                <label>Github</label>
+                <input type="text" value='{{view.github}}' class="form-control" placeholder="github.com/yourname" name="github">
+                <br>
+                <label>Twitter</label>
+                <input type="text" value='{{view.twitter}}' class="form-control" placeholder="twitter.com/username" name="twitter">
+                <br>
+                <label>Codepen</label>
+                <input type="text" value='{{view.codepen}}' class="form-control" placeholder="codepen.io/yourname" name="codepenr">
+                <br>
+                <label>website</label>
+                <input type="text" value='{{view.website}}' class="form-control" placeholder="Enter your website if any.. or an online link that tells more about you.."
+                    name="website">
+                <br>
+                <button type="submit" class=" btn btn-success">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

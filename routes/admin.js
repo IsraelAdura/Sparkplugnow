@@ -1,7 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var config=require('../config')
+var config = require('../config')
 var User = require('../models/users');
+
+var multer = require('multer');
+
+var image = require('./image');
+image.multer
+var upload = image.upload
+
 
 
 
@@ -13,7 +20,7 @@ router.get('/', isAdmin, function (req, res, next) {
 })
 
 function isAdmin(req, res, next) {
-    if (req.user._id ==config.admin) {
+    if (req.user._id == config.admin) {
         console.log(req.user._id)
         return next();
     }
@@ -21,22 +28,49 @@ function isAdmin(req, res, next) {
 }
 
 router.get('/delete/:id', isAdmin, function (req, res) {
-    if (req.params.id =='59eb1bfcd2575a4279cbe35b') {
+    if (req.params.id == config.admin) {
         res.status(500).send('<h1>you cant delete an Admin! </h1>');
     } else {
         User.findByIdAndRemove(req.params.id, function (err, user) {
-            // if (req.user.id)
             res.redirect('/admin');
             console.log(req.params.id, user);
         });
     }
 })
 router.get('/update/:id', isAdmin, function (req, res) {
-    User.getUserById(req.params.id, function (err, user) {
-        if (err) throw err;
-        res.render('profile', { user: user });
+    User.getAllUsers(function (err, users) {
+        User.getUserById(req.params.id, function (err, user) {
+            if (err) throw err;
+            res.render('userprofile', {
+                view: user,
+                users: users
+            });
+        });
     });
-});
+})
+
+router.get('/image/:id', isAdmin, function (req, res) {
+    User.getAllUsers(function (err, users) {
+        User.getUserById(req.params.id, function(err,user){
+            if (err)throw err;
+
+            res.render('userimage', {
+                view:user, 
+                users: users 
+            });
+        })
+    })
+})
+
+router.post('/updateImage/:id',upload.any(), function (req, res) {
+    console.log(req.files[0].originalname)
+      User.findByIdAndUpdate({ _id: req.params.id },{picture:{
+        originalname:req.files[0].originalname}
+      }, function (err, user) {
+        if (err) { throw err };
+        res.redirect('/userimage');
+    })
+  })
 
 
 module.exports = router;

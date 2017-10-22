@@ -33,6 +33,7 @@ router.get('/user/:username', isAuthenticated, function (req, res) {
     });
   });
 });
+
 router.get('/image', isAuthenticated, function (req, res) {
   User.getAllUsers(function (err, users) {
     res.render('image', { users: users });
@@ -40,15 +41,11 @@ router.get('/image', isAuthenticated, function (req, res) {
 })
 router.post('/updateImage/:id',upload.any(), function (req, res) {
   console.log(req.files[0].originalname)
- //upload(req, res, function (err) {
-   // if (err) {throw err}
     User.findByIdAndUpdate({ _id: req.params.id },{picture:{
       originalname:req.files[0].originalname}
     }, function (err, user) {
-    //console.log(req.files)
       if (err) { throw err };
       res.render('index');
-    //})
   })
 })
 router.post('/update/:id', isAuthenticated, function (req, res) {

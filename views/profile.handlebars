@@ -21,23 +21,23 @@
                 <label>About you</label>
                 <textarea id="" cols="80" rows="7" placeholder='enter some information about yourself' name='about'>{{user.about}}</textarea>
                 <br> <br>
-               
+
                 <label>What do you do?(Tools, Stack and Technologies)</label>
                 <textarea id="" cols="80" rows="7" placeholder='Enter technologies and language(s) you work with...' name='skills'> {{user.skills}}</textarea>
                 <br><br>
                 <label>Stack</label>
-                <br>  
-                <input type="radio" value='fullstack' name='stack'> Frontend
-                <input type='radio' value='backend' name='stack'> Backend
-                <input type='radio' value='backend' name='stack'> Fullstack
-                <input type='radio' value='backend' name='stack'> Mobile
-                <input type='radio' value='backend' name='stack'> MLAI
+                <br>
+                <input type="radio" value='Frontend' name='stack'> Frontend
+                <input type='radio' value='Backend' name='stack'> Backend
+                <input type='radio' value='Fullstack' name='stack'> Fullstack
+                <input type='radio' value='Mobile' name='stack'> Mobile
+                <input type='radio' value='MLAI' name='stack'> ML/AI
                 <br> <br>
-                 <label>Interests</label>
-                 <br/>
+                <label>Interests</label>
+                <br/>
                 <input type="text" value='{{user.interest1}}' class="form-control" placeholder="Enter an interest here" name="interest1">
-                 <input type="text" value='{{user.interest2}}' class="form-control" placeholder="Enter another interest here" name="interest2">
-                  <input type="text" value='{{user.interest3}}' class="form-control" placeholder="yet another interest." name="interest3">
+                <input type="text" value='{{user.interest2}}' class="form-control" placeholder="Enter another interest here" name="interest2">
+                <input type="text" value='{{user.interest3}}' class="form-control" placeholder="yet another interest." name="interest3">
                 <br>
                 <label>Github</label>
                 <input type="text" value='{{user.github}}' class="form-control" placeholder="github.com/yourname" name="github">

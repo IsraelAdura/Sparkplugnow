@@ -1,5 +1,5 @@
-.header{
-	margin-bottom: 100px;
+a{
+	color:black;
 }
 nav .navbar-brand{
 	padding-top:0px;
@@ -13,7 +13,8 @@ nav ul li{
     font-family:"Lucida Console", Monaco, monospace ;
 }
 #body{
-	min-height:450px;
+	margin-top: 100px;
+	min-height:500px;
 }
 .dropdown-menu li{
     font-family:"Comic Sans MS", cursive, sans-serif;
@@ -27,10 +28,6 @@ nav ul li{
 .form-field{
     width:60%;
 }
-	#mypicture img {
-		width: 250px;
-		height: 250px;
-	}
 #mypicture img {
 	width: 300px;
 	height: 300px;
@@ -53,9 +50,6 @@ nav ul li{
 	padding-top: 100px;
 	background: #f5f5f5;
 	font-family:tahoma;
-}
-#pw{
-	cursor: pointer;
 }
 #git {
 	background-color:#34495e;

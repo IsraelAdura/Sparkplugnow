@@ -1,82 +1,92 @@
 <!-- home section-->
 <!-- home section-->
-<section>
-  <div id="picture-sec">
+
+  <div id="picture-sec" >
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-md-4" id="mypicture">
+        <div class="col-sm-6 col-md-4 text-center" id="mypicture">
           <img src="images/{{view.picture.originalname}}" class="img-circle center-block">
+          <h1>{{view.username}} </h1>
         </div>
         <div class="col-sm-6 col-md-4 text-center" style="padding-top:60px;">
-          <h3> {{view.name}}</h3>
+          <h1> {{view.name}}</h1>
           <br/>
-          <em> {{view.stack}} </em>
+          <em> {{view.stack}} Developer</em>
           <br>
           <span class="fa fa-map-marker" aria-hidden="true"> {{view.address}}</span></br>
-          <span> <a href="https://israeladura.github.io"  id='website' class='fa fa-globe'>{{view.website}}</a> </span>
         </div>
 
         <div class="col-sm-12 col-md-4 connect center-block text-center">
+
           <div id='contact-group'>
-            <!-- <h3 class="page-header">Drop me a line!</h3>-->
+            <br>
             <div class='' id='phone'>
               <i class='fa fa-phone fa-2x'></i>
-              <div><a href="tel:{{view.mobile}}">{{view.mobile}}</a><br>
-              </div>
-            </div> <br>
+              <div><a href="tel:{{view.mobile}}"> {{view.mobile}}</a><br></div>
+            </div> 
             <div class='' id='email'>
               <i class='fa fa-envelope fa-2x contact'> </i>
             </div>
-            <a href='{{view.email}}'> {{view.email}}</a > <br>
-                           
-                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <br>
-        <a href="https://github.com/IsraelAdura" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
+            <a href='mailto:{{view.email}}'>{{view.email}}</a > <br>
+  
+            <ul class="list-inline ">
+              <li><a href="http://{{view.twitter}}"><i class="fa fa-github"></i></a></li>
+            <li><a href="http://{{view.codepen}}"><i class="fa fa-twitter"></i></a> </li>
+            <li><a href="http://{{view.linkedin}}"><i class="fa fa-linkedin"></i></a> </li>
+            <li><a href="http://{{view.website}}" class='fa fa-globe'></a> </li> 
+            </ul>
           </div>
-          <hr>
-          <div class="container">
-            <div>
-              <div class="row well text-center">
-                <div class="col-xm-12 col-sm-4 col-md-4 ">
-                  <a href='http://{{view.twitter}}' class='center-block'><i class='fa fa-twitter fa-3x'></i></a>
-                </div>
-                <div class="col-xm-12 col-sm-4 col-md-4 ">
-                  <a href='http://{{view.codepen}}' class='center-block'><i class='fa fa-codepen fa-3x'></i></a>
-                </div>
-                <div class="col-xm-12 col-sm-4 col-md-4 ">
-                  <a href='mailto:{{view.email}}' class=' center-block '><i class='fa fa-envelope fa-3x '></i></a>
-                </div>
-              </div>
-            </div>
-            <section>
-              <div class="col-sm-12 col-md-8 ">
-                <h2 class="text-center page-header">About me... <span class="fa fa-user " aria-hidden="true" style="padding-left:10px;"> </span> </h2>
-                <div class="about info">
-                  <p>{{view.about}} </p>
-                  <br>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12 col-md-4">
-                  <h2 class="text-center page-header">Professional Bio...<span class="fa fa-code " style="padding-left:10px;"></span></h2>
-                  <div class="bio info">
 
-                    <b class='color '>  Code! | Developer | JavaScript | <i class='fa fa-heart love ' ></i> </b>
-                    <br>
-                    <h3 class=' '>
-                      <u>Technical Skills</u>
-                    </h3>
-                    <ul class='list-unstyled '>
-                      {{view.skills}}
-                    </ul>
-                    <br>
-                  </div>
-                </div>
-              </div>
+        </div>
+      </div>
+    </div>
+     </div>
+    <br>
+    <a href="{{view.github}}" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
+ 
+  <hr>
+  <div class="container">
+    <div>
+      <div class="row well text-center">
+        <div class="col-xm-12 col-sm-3 col-md-3">
+          <strong>Interests<span class="fa fa-arrow-right" style ="padding-left:20px;"></span></strong>
+        </div>
+        <div class="col-xm-12 col-sm-3 col-md-3 ">
+          <em>{{view.interest1}}</em>
+        </div>
+        <div class="col-xm-12 col-sm-3 col-md-3 ">
+          <em>{{view.interest2}}</em>
+        </div>
+        <div class="col-xm-12 col-sm-3 col-md-3 ">
+          <em>{{view.interest3}}</em>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="col-sm-12 col-md-8 ">
+        <h2 class="text-center page-header">About me...<span class="fa fa-user " aria-hidden="true" style="padding-left:10px;"> </span> </h2>
+        <div class="about info">
+          <p>{{view.about}} </p>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+          <h2 class="text-center page-header">Professional Bio...<span class="fa fa-code " style="padding-left:10px;"></span></h2>
+          <div class="bio info">
+
+            <b class='color '>  Code! | Developer | JavaScript | <i class='fa fa-heart love ' ></i> </b>
+            <br>
+            <h3 class=' '>
+              <u>Technical Skills</u>
+            </h3>
+            <ul class='list-unstyled '>
+              {{view.skills}}
+            </ul>
+            <br>
           </div>
-          <hr>
-          </section>
+        </div>
+      </div>
+  </div>
+  <hr>
+  </section>

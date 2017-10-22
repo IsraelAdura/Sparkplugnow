@@ -1,92 +1,92 @@
 <!-- home section-->
 <!-- home section-->
 
-  <div id="picture-sec" >
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-4 text-center" id="mypicture">
-          <img src="images/{{user.picture.originalname}}" class="img-circle center-block">
-          <h1>{{user.username}} </h1>
-        </div>
-        <div class="col-sm-6 col-md-4 text-center" style="padding-top:60px;">
-          <h1> {{user.name}}</h1>
-          <br/>
-          <b> {{user.stack}} Developer</b>
-          <br>
-          <span class="fa fa-map-marker" aria-hidden="true"> {{user.address}}</span></br>
-        </div>
-
-        <div class="col-sm-12 col-md-4 connect center-block text-center">
-
-          <div id='contact-group'>
-            <br>
-            <div class='' id='phone'>
-              <i class='fa fa-phone fa-2x'></i>
-              <div><a href="tel:{{user.mobile}}"> {{user.mobile}}</a><br></div>
-            </div> 
-            <div class='' id='email'>
-              <i class='fa fa-envelope fa-2x contact'> </i>
-            </div>
-            <a href='mailto:{{user.email}}'>{{user.email}}</a > <br>
-  
-            <ul class="list-inline ">
-              <li><a href="http://{{user.twitter}}"><i class="fa fa-github"></i></a></li>
-            <li><a href="http://{{user.codepen}}"><i class="fa fa-twitter"></i></a> </li>
-            <li><a href="http://{{user.linkedin}}"><i class="fa fa-linkedin"></i></a> </li>
-            <li><a href="http://{{user.website}}" class='fa fa-globe'></a> </li> 
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-     </div>
-    <br>
-    <a href="{{user.github}}" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
- 
-  <hr>
+<div id="picture-sec">
   <div class="container">
-    <div>
-      <div class="row well text-center">
-        <div class="col-xm-12 col-sm-3 col-md-3">
-          <strong>Interests<span class="fa fa-arrow-right" style ="padding-left:20px;"></span></strong>
-        </div>
-        <div class="col-xm-12 col-sm-3 col-md-3 ">
-          <em>{{user.interest1}}</em>
-        </div>
-        <div class="col-xm-12 col-sm-3 col-md-3 ">
-          <em>{{user.interest2}}</em>
-        </div>
-        <div class="col-xm-12 col-sm-3 col-md-3 ">
-          <em>{{user.interest3}}</em>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 text-center" id="mypicture">
+        <img src="images/{{user.picture.originalname}}" class="img-circle center-block">
+        <h1>{{user.username}} </h1>
+      </div>
+      <div class="col-sm-6 col-md-4 text-center" style="padding-top:60px;">
+        <h1> {{user.name}}</h1>
+        <br/>
+        <em> {{user.stack}} Developer</em>
+        <br>
+        <span class="fa fa-map-marker" aria-hidden="true"> {{user.address}}</span></br>
+      </div>
+
+      <div class="col-sm-12 col-md-4 center-block text-center">
+
+        <div id='contact-group'>
+          <br>
+          <div class="row">
+            <i class='col-sm-10 fa fa-phone'><a href="tel:{{user.mobile}}"></a>{{user.mobile}}</i>
+          </div>
+          <br>
+          <div class="row">
+            <i class='col-sm-10 fa fa-envelope'><a href="mailto:{{user.email}}"></a>{{user.email}}</i>
+          </div>
+          <br>
+          <i class='col-sm-10 fa-2x'>
+            <ul class="list-inline">
+              <li><a href="http://{{user.twitter}}" class="fa fa-twitter"></a></li>
+              <li><a href="http://{{user.codepen}}" class="fa fa-codepen"></a> </li>
+              <li><a href="http://{{user.github}}" class="fa fa-github"></a> </li>
+              <li><a href="http://{{user.website}}" class='fa fa-globe'></a> </li>
+            </ul>
+          </i>
+
         </div>
       </div>
     </div>
-    <section>
-      <div class="col-sm-12 col-md-8 ">
-        <h2 class="text-center page-header">About me... <span class="fa fa-user " aria-hidden="true" style="padding-left:10px;"> </span> </h2>
-        <div class="about info">
-          <p>{{user.about}} </p>
+  </div>
+</div>
+<br>
+<a href="{{user.github}}" class='btn btn-default text-center center-block' id='git'><i class='fa fa-github fa-3x'></i></a>
+
+<hr>
+<div class="container">
+  <div>
+    <div class="row well text-center">
+      <div class="col-xm-12 col-sm-3 col-md-3">
+        <strong>Interests<span class="fa fa-arrow-right" style ="padding-left:20px;"></span></strong>
+      </div>
+      <div class="col-xm-12 col-sm-3 col-md-3 ">
+        <em>{{user.interest1}}</em>
+      </div>
+      <div class="col-xm-12 col-sm-3 col-md-3 ">
+        <em>{{user.interest2}}</em>
+      </div>
+      <div class="col-xm-12 col-sm-3 col-md-3 ">
+        <em>{{user.interest3}}</em>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="col-sm-12 col-md-8 ">
+      <h2 class="text-center page-header">About me...<span class="fa fa-user " aria-hidden="true" style="padding-left:10px;"> </span> </h2>
+      <div class="about info">
+        <p>{{user.about}} </p>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <h2 class="text-center page-header">Professional Bio...<span class="fa fa-code " style="padding-left:10px;"></span></h2>
+        <div class="bio info">
+
+          <br>
+          <h3 class=' '>
+            <u>Technical Skills</u>
+          </h3>
+          <ul class='list-unstyled '>
+            {{user.skills}}
+          </ul>
           <br>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-4">
-          <h2 class="text-center page-header">Professional Bio...<span class="fa fa-code " style="padding-left:10px;"></span></h2>
-          <div class="bio info">
-
-            <b class='color '>  Code! | Developer | JavaScript | <i class='fa fa-heart love ' ></i> </b>
-            <br>
-            <h3 class=' '>
-              <u>Technical Skills</u>
-            </h3>
-            <ul class='list-unstyled '>
-              {{user.skills}}
-            </ul>
-            <br>
-          </div>
-        </div>
-      </div>
-  </div>
-  <hr>
-  </section>
+    </div>
+</div>
+<hr>
+</section>

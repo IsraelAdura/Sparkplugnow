@@ -1,0 +1,11 @@
+<div class='container center-block'>
+    <div class=' well center-block'>
+        <img src="/images/{{view.picture.originalname}}" width='300px' height='300px' class='img-circle'>
+        <form action="/updateImage/{{view._id}}" method='post' enctype="multipart/form-data">
+            <br>
+            <input type="file" name="picture">
+            <br>
+            <button type="submit" class=" btn btn-success">Change picture</button>
+        </form>
+ </div>
+</div>
