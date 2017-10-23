@@ -105,7 +105,6 @@ router.post('/register', upload.any(), function (req, res) {
     });
     req.flash('success_msg', 'you are registered to login');
 
-    //console.log(name,email,password,password2,username);
 
     res.redirect('/users/login');
   }

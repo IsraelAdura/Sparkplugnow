@@ -1,7 +1,7 @@
 module.exports={
     mlab:'mongodb://israeladura:this.code@ds125565.mlab.com:25565/sparkplugnow',
     mongo:'mongodb://localhost/nodejslogin',
-    admin:'59eb1bfcd2575a4279cbe35b'
+    admin:'59edd9e545264e264993bb76'
    
 }
  //'59eb1bfcd2575a4279cbe35b'-mlab
