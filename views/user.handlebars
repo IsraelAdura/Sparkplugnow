@@ -17,25 +17,25 @@
         </div>
 
         <div class="col-sm-12 col-md-4 connect center-block text-center">
-
-          <div id='contact-group'>
-            <br>
-            <div class='' id='phone'>
-              <i class='fa fa-phone fa-2x'></i>
-              <div><a href="tel:{{view.mobile}}"> {{view.mobile}}</a><br></div>
-            </div> 
-            <div class='' id='email'>
-              <i class='fa fa-envelope fa-2x contact'> </i>
-            </div>
-            <a href='mailto:{{view.email}}'>{{view.email}}</a > <br>
-  
-            <ul class="list-inline ">
-              <li><a href="http://{{view.twitter}}"><i class="fa fa-github"></i></a></li>
-            <li><a href="http://{{view.codepen}}"><i class="fa fa-twitter"></i></a> </li>
-            <li><a href="http://{{view.linkedin}}"><i class="fa fa-linkedin"></i></a> </li>
-            <li><a href="http://{{view.website}}" class='fa fa-globe'></a> </li> 
-            </ul>
+     <div id='contact-group'>
+          <br>
+          <div class="row">
+            <i class='col-sm-10 fa fa-phone'><a href="tel:{{user.mobile}}"></a>{{user.mobile}}</i>
           </div>
+          <br>
+          <div class="row">
+            <i class='col-sm-10 fa fa-envelope'><a href="mailto:{{user.email}}"></a>{{user.email}}</i>
+          </div>
+          <br>
+          <i class='col-sm-10 fa-2x'>
+            <ul class="list-inline">
+              <li><a href="http://{{user.twitter}}" class="fa fa-twitter"></a></li>
+              <li><a href="http://{{user.codepen}}" class="fa fa-codepen"></a> </li>
+              <li><a href="http://{{user.github}}" class="fa fa-github"></a> </li>
+              <li><a href="http://{{user.website}}" class='fa fa-globe'></a> </li>
+            </ul>
+          </i>
+        </div>
 
         </div>
       </div>

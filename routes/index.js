@@ -12,7 +12,7 @@ var upload = image.upload
 
 /* GET homepage. */
 router.get('/', isAuthenticated, function (req, res, next) {
-  console.log(req.user);
+  //console.log(req.user);
   User.getAllUsers(function (err, users) {
     res.render('index', { users: users });
   })
@@ -40,7 +40,7 @@ router.get('/image', isAuthenticated, function (req, res) {
   })
 })
 router.post('/updateImage/:id',upload.any(), function (req, res) {
-  console.log(req.files[0].originalname)
+  //console.log(req.files[0].originalname)
     User.findByIdAndUpdate({ _id: req.params.id },{picture:{
       originalname:req.files[0].originalname}
     }, function (err, user) {
@@ -48,6 +48,7 @@ router.post('/updateImage/:id',upload.any(), function (req, res) {
       res.render('index');
   })
 })
+
 router.post('/update/:id', isAuthenticated, function (req, res) {
   User.findByIdAndUpdate({ _id: req.params.id }, req.body, function (err, user) {
     if (err) { throw err };

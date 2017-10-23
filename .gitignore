@@ -2,4 +2,3 @@ node_modules
 public/css/font-awesome
 bin
 .DS_Store
-config.js

@@ -21,7 +21,7 @@ router.get('/', isAdmin, function (req, res, next) {
 
 function isAdmin(req, res, next) {
     if (req.user._id == config.admin) {
-        console.log(req.user._id)
+     //   console.log(req.user._id)
         return next();
     }
     // res.redirect('users/login');
@@ -33,7 +33,7 @@ router.get('/delete/:id', isAdmin, function (req, res) {
     } else {
         User.findByIdAndRemove(req.params.id, function (err, user) {
             res.redirect('/admin');
-            console.log(req.params.id, user);
+           // console.log(req.params.id, user);
         });
     }
 })
@@ -63,7 +63,7 @@ router.get('/image/:id', isAdmin, function (req, res) {
 })
 
 router.post('/updateImage/:id',upload.any(), function (req, res) {
-    console.log(req.files[0].originalname)
+   // console.log(req.files[0].originalname)
       User.findByIdAndUpdate({ _id: req.params.id },{picture:{
         originalname:req.files[0].originalname}
       }, function (err, user) {

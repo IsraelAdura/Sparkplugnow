@@ -29,12 +29,11 @@ var options = {
 };
 
 //connect to mongodb locally
-mongoose.connect(config.mongo);
+//mongoose.connect(config.mongo);
 
 //connect to database
 mongoose.connect(config.mlab);
 
-//mongodb://<dbuser>:<dbpassword>@ds125565.mlab.com:25565/sparkplugnow
 var db = mongoose.connection;
 
 db.on('error', function (err) {
